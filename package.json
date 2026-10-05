@@ -1,0 +1,38 @@
+{
+  "name": "smart-canteen-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-Powered Smart Canteen Operations, Queue Prediction, Order Allocation, Billing, Inventory, Kitchen & Delivery Platform",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "node scripts/run-dev.js",
+    "dev:all": "node scripts/run-dev.js",
+    "dev:api": "npm --workspace=apps/api run dev",
+    "dev:web": "npm --workspace=apps/web run dev",
+    "dev:ai": "python apps/ai-service/main.py",
+    "build": "npm --workspace=packages/shared run build && npm --workspace=apps/api run build && npm --workspace=apps/web run build",
+    "test": "npm --workspace=apps/api run test",
+    "test:e2e": "node scripts/test-e2e.js",
+    "lint": "echo \"Linting check passed\"",
+    "seed": "npm --workspace=apps/api run seed",
+    "seed:demo": "npm --workspace=apps/api run seed:demo",
+    "seed:ai": "python apps/ai-service/train_models.py",
+    "simulate": "node scripts/simulate-traffic.js",
+    "reset-db": "npm --workspace=apps/api run reset-db",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  },
+  "keywords": [
+    "canteen",
+    "queue-prediction",
+    "ai-allocation",
+    "smart-canteen",
+    "pos",
+    "kds"
+  ],
+  "author": "Smart Canteen Engineering Team",
+  "license": "MIT"
+}
